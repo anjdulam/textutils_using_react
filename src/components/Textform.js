@@ -55,18 +55,18 @@ export default function Textform(props) {
             <button className="btn btn-primary" onClick={handleClickUpper}>
                 Convert into upper case
             </button>
-            <button className="btn btn-primary mx-4" onClick={handleClickLower}>
+            <button className="btn btn-primary mx-4 my-1" onClick={handleClickLower}>
                 Convert into lower case
             </button>
-            <button className="btn btn-primary mx-2" onClick={handleClickClear}>
+            <button className="btn btn-primary mx-2 my-1" onClick={handleClickClear}>
                 Clear text
             </button>
 
-            <button className="btn btn-primary mx-4" onClick={handleCopy}>
+            <button className="btn btn-primary mx-4 my-1" onClick={handleCopy}>
                 Copy text
             </button>
 
-            <button className="btn btn-primary mx-2" onClick={handleExtraspaces}>
+            <button className="btn btn-primary mx-2 my-1" onClick={handleExtraspaces}>
                Remove Extra spaces
             </button>
         </div>
@@ -80,7 +80,8 @@ export default function Textform(props) {
 
                 <h1>your text summary</h1>
                 {/* <p> 100 words and 534646 characters</p> */}
-                <p>{text.split(" ").length} words and {text.length} characters</p>
+                {/* basically its considering space also as word so we use filter(). it takes ele as parameter. if ele len =0, indicating blank then it wont be a part of array  */}
+                <p>{text.split(/\s+/).filter((ele)=>{return ele.length !==0}).length} words and {text.length} characters</p>
 
                 <p>minutes taken to read this text = {text.split(" ").length*0.008}</p>
             </div>
